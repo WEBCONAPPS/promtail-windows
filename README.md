@@ -33,7 +33,7 @@ The container image is based on nanoserver:ltsc2022. To successfully deploy and 
    Run the following command to install the Helm chart:
 
    ```sh
-   helm install promtail-windows ./helm/promtail-win -f values.yaml
+   helm install promtail-windows ./helm/promtail-win -f helm/promtail-win/values.yaml -n monitoring
    ```
 
    Replace `promtail-windows` with the desired release name.

@@ -5,9 +5,9 @@
 replicaCount: 1
 
 image:
-  repository: diquzart/promtail-win
+  repository: marcinwoloszz/promtail-win
   pullPolicy: Always
-  tag: ""
+  tag: "3.1.0"
 
 imagePullSecrets: []
 
@@ -23,7 +23,7 @@ podAnnotations: {}
 
 podSecurityContext:
    windowsOptions:
-     runAsUserName: "ContainerUser"
+     runAsUserName: "ContainerAdministrator"
 
 securityContext:
    capabilities:
@@ -51,7 +51,6 @@ autoscaling:
   targetMemoryUtilizationPercentage: 80
 
 nodeSelector:
-   agentpool: win
    kubernetes.io/os: windows
 
 tolerations:
@@ -63,6 +62,6 @@ tolerations:
 affinity: {}
 
 configs:
-  lokiURL: https://loki.example.com/loki/api/v1/push
+  lokiURL: http://loki.monitoring.svc.cluster.local:3100/loki/api/v1/push
   positionsFileName: C:\promtail\positions.yaml
   listenPort: 3101
